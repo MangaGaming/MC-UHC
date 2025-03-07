@@ -1,0 +1,9 @@
+name: McUHC
+version: 1.0
+main: com.mguhc.mcuhc.MCUHC
+api-version: 1.8
+depend: [UhcAPI]
+commands:
+  mc:
+    description: Commande principale du plugin Mc Uhc
+  resurrect:
