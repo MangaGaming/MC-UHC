@@ -10,6 +10,7 @@ import com.mguhc.mcuhc.MCUHC;
 import com.mguhc.mcuhc.roles.pacifiques.allay.AllayListener;
 import com.mguhc.mcuhc.roles.pacifiques.camel.CamelListener;
 import com.mguhc.mcuhc.roles.pacifiques.parrot.ParrotListener;
+import com.mguhc.mcuhc.roles.pacifiques.polarbear.PolarBearListener;
 import com.mguhc.player.PlayerManager;
 import com.mguhc.player.UhcPlayer;
 import com.mguhc.roles.RoleManager;
@@ -111,6 +112,8 @@ public class FoxListener implements Listener {
                     player.getInventory().addItem(CamelListener.getMontureItem());
                 case "Parrot":
                     player.getInventory().addItem(ParrotListener.getFlyItem());
+                case "Polar Bear":
+                    player.getInventory().addItem(PolarBearListener.getGlassItem());
                 default:
                     break;
             }

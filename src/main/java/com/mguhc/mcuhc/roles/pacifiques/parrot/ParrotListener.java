@@ -64,7 +64,7 @@ public class ParrotListener implements Listener {
         Player player = event.getPlayer();
         ItemStack item = event.getItem();
 
-        if (item != null && item.isSimilar(getFlyItem())) {
+        if (item != null && item.equals(getFlyItem())) {
             // Vérifiez si le joueur peut voler
             if (!player.getAllowFlight()) {
                 player.setAllowFlight(true); // Autoriser le vol
@@ -81,5 +81,10 @@ public class ParrotListener implements Listener {
         meta.setDisplayName("§7Vol");
         flyItem.setItemMeta(meta);
         return flyItem;
+    }
+
+    private boolean isParrot(Player player) {
+        UhcPlayer uhcPlayer = playerManager.getPlayer(player);
+        return uhcPlayer != null && uhcPlayer.getRole() != null && uhcPlayer.getRole().getName().equals("Parrot");
     }
 }

@@ -18,6 +18,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.Action;
+import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.Inventory;
@@ -112,9 +113,7 @@ public class IronGolemListener implements Listener {
                 Player target = getTargetPlayer(player, 5);
                 if (target != null) {
                     cooldownManager.startCooldown(player, coupDeMainAbility);
-                    target.damage(2, player);
-                    Vector velocity = target.getVelocity().add(new Vector(0, 8, 0));
-                    target.setVelocity(velocity);
+                    launch(target);
                 }
             }
         }
@@ -135,6 +134,29 @@ public class IronGolemListener implements Listener {
             }
             else {
                 player.sendMessage("§cVous êtes en cooldown pour "+ (long) cooldownManager.getRemainingCooldown(player, ironBlockAbility) / 1000 + "s");
+            }
+        }
+    }
+
+    private void launch(Player target) {
+        target.damage(2);
+        Vector velocity = target.getVelocity().add(new Vector(0, 2, 0));
+        target.setVelocity(velocity);
+    }
+
+    @EventHandler
+    private void OnDamage(EntityDamageByEntityEvent event) {
+        if (event.getEntity() instanceof Player && event.getDamager() instanceof Player) {
+            Player victim = (Player) event.getEntity();
+            Player damager = (Player) event.getDamager();
+            if (isGolem(damager) && damager.getItemInHand() == null) {
+                if (cooldownManager.getRemainingCooldown(damager, coupDeMainAbility) == 0) {
+                    cooldownManager.startCooldown(damager, coupDeMainAbility);
+                    launch(victim);
+                }
+                else {
+                    damager.sendMessage("§cVous êtes en cooldown pour " + (long) cooldownManager.getRemainingCooldown(damager, ironBlockAbility) / 1000 + "s");
+                }
             }
         }
     }

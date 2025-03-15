@@ -2,7 +2,7 @@ package com.mguhc.mcuhc;
 
 import com.mguhc.UhcAPI;
 import com.mguhc.mcuhc.command.ResurrectCommand;
-import com.mguhc.mcuhc.roles.pacifiques.bear.PolarBearListener;
+import com.mguhc.mcuhc.roles.pacifiques.polarbear.PolarBearListener;
 import com.mguhc.mcuhc.roles.pacifiques.fox.FoxListener;
 import com.mguhc.mcuhc.roles.pacifiques.cow.CowListener;
 import com.mguhc.mcuhc.roles.pacifiques.frog.FrogListener;
