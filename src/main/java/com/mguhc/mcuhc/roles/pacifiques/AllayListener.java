@@ -1,4 +1,4 @@
-package com.mguhc.mcuhc.roles.pacifiques.allay;
+package com.mguhc.mcuhc.roles.pacifiques;
 
 import com.mguhc.ability.Ability;
 import com.mguhc.events.UhcDeathEvent;

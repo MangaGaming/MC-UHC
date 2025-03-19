@@ -2,23 +2,20 @@ package com.mguhc.mcuhc;
 
 import com.mguhc.UhcAPI;
 import com.mguhc.mcuhc.command.ResurrectCommand;
-import com.mguhc.mcuhc.roles.pacifiques.polarbear.PolarBearListener;
-import com.mguhc.mcuhc.roles.pacifiques.fox.FoxListener;
-import com.mguhc.mcuhc.roles.pacifiques.cow.CowListener;
-import com.mguhc.mcuhc.roles.pacifiques.frog.FrogListener;
-import com.mguhc.mcuhc.roles.pacifiques.horse.HorseListener;
-import com.mguhc.mcuhc.roles.pacifiques.irongolem.IronGolemListener;
-import com.mguhc.mcuhc.roles.pacifiques.parrot.ParrotListener;
+import com.mguhc.mcuhc.roles.pacifiques.SnowGolemListener;
+import com.mguhc.mcuhc.roles.pacifiques.PolarBearListener;
+import com.mguhc.mcuhc.roles.pacifiques.FoxListener;
+import com.mguhc.mcuhc.roles.pacifiques.CowListener;
+import com.mguhc.mcuhc.roles.pacifiques.FrogListener;
+import com.mguhc.mcuhc.roles.pacifiques.HorseListener;
+import com.mguhc.mcuhc.roles.pacifiques.IronGolemListener;
+import com.mguhc.mcuhc.roles.pacifiques.ParrotListener;
 import com.mguhc.roles.Camp;
 import com.mguhc.roles.UhcRole;
-import com.mguhc.mcuhc.roles.pacifiques.allay.AllayListener;
-import com.mguhc.mcuhc.roles.pacifiques.camel.CamelListener;
-import com.mguhc.mcuhc.roles.pacifiques.cat.CatListener;
-import net.minecraft.server.v1_8_R3.IChatBaseComponent;
-import net.minecraft.server.v1_8_R3.PacketPlayOutChat;
+import com.mguhc.mcuhc.roles.pacifiques.AllayListener;
+import com.mguhc.mcuhc.roles.pacifiques.CamelListener;
+import com.mguhc.mcuhc.roles.pacifiques.CatListener;
 import org.bukkit.Bukkit;
-import org.bukkit.craftbukkit.v1_8_R3.entity.CraftPlayer;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -59,6 +56,7 @@ public class MCUHC extends JavaPlugin {
         pluginManager.registerEvents(new IronGolemListener() , this);
         pluginManager.registerEvents(new ParrotListener() , this);
         pluginManager.registerEvents(new PolarBearListener() , this);
+        pluginManager.registerEvents(new SnowGolemListener() , this);
     }
 
     private void initializeRole() {
@@ -156,17 +154,6 @@ public class MCUHC extends JavaPlugin {
         soloCamp.addRole(roleMap.get("Ender Dragon"));
         soloCamp.addRole(roleMap.get("Warden"));
         UhcAPI.getInstance().getRoleManager().addCamp(soloCamp);
-    }
-
-    public static void sendActionBar(Player player, String message) {
-        if (player == null || message == null) {
-            return;
-        }
-
-        IChatBaseComponent chatBaseComponent = IChatBaseComponent.ChatSerializer.a("{\"text\": \"" + message + "\"}");
-        PacketPlayOutChat packet = new PacketPlayOutChat(chatBaseComponent, (byte) 2); // Type 2 = Action Bar
-
-        ((CraftPlayer) player).getHandle().playerConnection.sendPacket(packet);
     }
 
     public static MCUHC getInstance() {

@@ -1,4 +1,4 @@
-package com.mguhc.mcuhc.roles.pacifiques.fox;
+package com.mguhc.mcuhc.roles.pacifiques;
 
 import com.mguhc.UhcAPI;
 import com.mguhc.ability.AbilityManager;
@@ -7,10 +7,6 @@ import com.mguhc.effect.EffectManager;
 import com.mguhc.events.RoleGiveEvent;
 import com.mguhc.events.UhcDeathEvent;
 import com.mguhc.mcuhc.MCUHC;
-import com.mguhc.mcuhc.roles.pacifiques.allay.AllayListener;
-import com.mguhc.mcuhc.roles.pacifiques.camel.CamelListener;
-import com.mguhc.mcuhc.roles.pacifiques.parrot.ParrotListener;
-import com.mguhc.mcuhc.roles.pacifiques.polarbear.PolarBearListener;
 import com.mguhc.player.PlayerManager;
 import com.mguhc.player.UhcPlayer;
 import com.mguhc.roles.RoleManager;

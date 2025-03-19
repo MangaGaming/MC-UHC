@@ -1,4 +1,4 @@
-package com.mguhc.mcuhc.roles.pacifiques.polarbear;
+package com.mguhc.mcuhc.roles.pacifiques;
 
 import com.mguhc.UhcAPI;
 import com.mguhc.ability.Ability;
@@ -30,7 +30,6 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 import org.bukkit.scheduler.BukkitRunnable;
 import org.bukkit.util.Vector;
-import org.spigotmc.SneakyThrow;
 
 import java.util.Collections;
 import java.util.HashMap;
@@ -89,7 +88,7 @@ public class PolarBearListener implements Listener {
 
     private void createGlassZone(Player player) {
         // Créer une zone de glace autour du joueur
-        int radius = 30; // Rayon de 30 blocs
+        int radius = 15; // Rayon de 30 blocs
         Location playerLocation = player.getLocation();
         World nmsWorld = ((CraftPlayer) player).getHandle().world;
 

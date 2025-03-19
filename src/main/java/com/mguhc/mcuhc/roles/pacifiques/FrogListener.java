@@ -1,4 +1,4 @@
-package com.mguhc.mcuhc.roles.pacifiques.frog;
+package com.mguhc.mcuhc.roles.pacifiques;
 
 import com.mguhc.UhcAPI;
 import com.mguhc.ability.Ability;
@@ -79,14 +79,14 @@ public class FrogListener implements Listener {
                     if (isPassifActive) {
                         player.setAllowFlight(true);
                         if (cooldownManager.getRemainingCooldown(player, jumpAbility) == 0) {
-                            MCUHC.sendActionBar(player, "§6Double Saut : §aDisponible");
+                            UhcAPI.sendActionBar(player, "§6Double Saut : §aDisponible");
                         }
                         else {
-                            MCUHC.sendActionBar(player, "§6Double Saut : §9" + (long) cooldownManager.getRemainingCooldown(player, jumpAbility) / 1000 + "s");
+                            UhcAPI.sendActionBar(player, "§6Double Saut : §9" + (long) cooldownManager.getRemainingCooldown(player, jumpAbility) / 1000 + "s");
                         }
                     }
                     else {
-                        MCUHC.sendActionBar(player, "§6Double Saut : §cDésactivé");
+                        UhcAPI.sendActionBar(player, "§6Double Saut : §cDésactivé");
                     }
                 }
             }.runTaskTimer(MCUHC.getInstance(), 0, 20);

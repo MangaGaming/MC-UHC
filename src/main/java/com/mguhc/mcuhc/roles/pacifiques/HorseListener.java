@@ -1,4 +1,4 @@
-package com.mguhc.mcuhc.roles.pacifiques.horse;
+package com.mguhc.mcuhc.roles.pacifiques;
 
 import com.mguhc.UhcAPI;
 import com.mguhc.ability.AbilityManager;
